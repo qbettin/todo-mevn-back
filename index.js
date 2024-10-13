@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const authRoutes = require('./routes/auth.js');
-const todoRoutes = require('./routes/todos.js');
+const authRoutes = require('./api/routes/auth.js');
+const todoRoutes = require('./api/routes/todos.js');
 const serverless = require('serverless-http');
 
 const app = express();
@@ -24,6 +24,12 @@ app.use('/api/todos', todoRoutes);
 // Example route
 app.get('/', (req, res) => {
     res.send('API is running...');
+});
+app.get('/api/auth', (req, res) => {
+    res.send('Auth is running...');
+});
+app.get('/api/todos', (req, res) => {
+    res.send('Todos are running...');
 });
 
 // MongoDB connection
