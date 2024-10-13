@@ -2,8 +2,8 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const authRoutes = require('./api/routes/auth.js');
-const todoRoutes = require('./api/routes/todos.js');
+const authRoutes = require('./auth.js');
+const todoRoutes = require('./todos.js');
 const serverless = require('serverless-http');
 
 const app = express();
@@ -18,17 +18,17 @@ app.use(cors({
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRoutes);
-app.use('/api/todos', todoRoutes);
+app.use('/auth', authRoutes);
+app.use('/todos', todoRoutes);
 
 // Example route
 app.get('/', (req, res) => {
     res.send('API is running...');
 });
-app.get('/api/auth', (req, res) => {
+app.get('/auth', (req, res) => {
     res.send('Auth is running...');
 });
-app.get('/api/todos', (req, res) => {
+app.get('/todos', (req, res) => {
     res.send('Todos are running...');
 });
 

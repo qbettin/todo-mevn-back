@@ -1,6 +1,6 @@
 const express = require('express');
-const Todo = require('../../entity/todo');
-const auth = require('../../middleware/auth');
+const Todo = require('./entity/todo');
+const auth = require('./middleware/auth');
 const router = express.Router();
 
 router.get('/', auth, async (req, res) => {
