@@ -30,6 +30,10 @@
         "headers": {
           "Access-Control-Allow-Origin": "*"
         }
+      },
+      {
+        "src": "/(.+\\.[a-z]+)$",
+        "dest": "/public/$1"
       }
     ]
   }
