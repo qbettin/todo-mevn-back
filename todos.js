@@ -3,9 +3,6 @@ const Todo = require('./entity/todo');
 const auth = require('./middleware/auth');
 const router = express.Router();
 
-router.get('/', (req, res) => {
-  res.json({ message: "Todos route is working" });
-});
 router.get('/', auth, async (req, res) => {
   try {
     const todos = await Todo.find({ user: req.user.id });

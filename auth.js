@@ -5,9 +5,6 @@ const User = require('./entity/user');
 const router = express.Router();
 const JWT_SECRET = process.env.JWT_SECRET;
 
-router.get('/', (req, res) => {
-  res.json({ message: "Auth route is working" });
-});
 router.post('/register', async (req, res) => {
   const { username, password } = req.body;
   try {
