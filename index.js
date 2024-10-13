@@ -8,6 +8,7 @@ const serverless = require('serverless-http');
 
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors({
@@ -38,4 +39,5 @@ mongoose.connect(MONGO_URI)
 // mongoose.set('debug', true);
 
 // Export the app wrapped in serverless-http for Vercel
-module.exports = serverless(app);
+
+app.listen(PORT, () => console.log(`Server running on ${PORT}, http://localhost:${PORT}`));
