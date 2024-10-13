@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./auth.js');
 const todoRoutes = require('./todos.js');
-// const serverless = require('serverless-http');
 
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
@@ -36,8 +35,6 @@ mongoose.connect(MONGO_URI)
         console.error('MongoDB connection error:', err);
     });
 
-// mongoose.set('debug', true);
-
-// Export the app wrapped in serverless-http for Vercel
+mongoose.set('debug', true);
 
 app.listen(PORT, () => console.log(`Server running on ${PORT}, http://localhost:${PORT}`));
