@@ -35,7 +35,7 @@ mongoose.connect(MONGO_URI)
         console.error('MongoDB connection error:', err);
     });
 
-mongoose.set('debug', true);
+// mongoose.set('debug', true);
 
 // Export the app wrapped in serverless-http for Vercel
 module.exports = serverless(app);
