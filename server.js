@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/auth.js');
 const todoRoutes = require('./routes/todos.js');
-const serverless = require('serverless-http'); // Import serverless-http
 
 const app = express();
 const MONGO_URI = process.env.MONGO_URI;
@@ -36,5 +35,6 @@ mongoose.connect(MONGO_URI, {
 
 mongoose.set('debug', true);
 
-// Export the app wrapped in serverless-http for Vercel
-module.exports.handler = serverless(app); // Export the handler for Vercel
+// Local development server - ONLY for local usage
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
