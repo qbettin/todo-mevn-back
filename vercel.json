@@ -1,5 +1,7 @@
 {
+    "name": "todo-mevn-back",
     "version": 2,
+    "public": true,
     "builds": [
       {
         "src": "index.js",
@@ -12,17 +14,12 @@
     ],
     "routes": [
       {
-        "src": "/favicon.ico",
-        "dest": "/public/favicon.ico"
+        "src": "/((?!.*\\.\\w+$).*)",
+        "dest": "/index.js"
       },
       {
-        "src": "/(.*)",
-        "dest": "/index.js",
-        "methods": ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
-        "headers": {
-          "Access-Control-Allow-Origin": "*"
-        }
+        "src": "/(.+\\.[a-z]+)$",
+        "dest": "/public/$1"
       }
     ]
   }
-  
